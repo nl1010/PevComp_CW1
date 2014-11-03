@@ -1,0 +1,2 @@
+DEBUG (32): Led0 on 
+DEBUG (32): Application Booted.

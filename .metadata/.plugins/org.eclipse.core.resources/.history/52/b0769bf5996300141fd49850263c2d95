@@ -1,0 +1,2 @@
+COMPONENT = 'NetworkNodeAppC'
+include $(MAKERULES)
