@@ -1,0 +1,4 @@
+configuration NetNodeAppC{
+}
+implementation{
+}

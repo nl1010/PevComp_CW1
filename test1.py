@@ -13,5 +13,5 @@ t.addChannel("Boot",sys.stdout)
 t.addChannel("Led",sys.stdout)
 
 
-t.runNextEvent();
-
+while True:
+	t.runNextEvent();

@@ -797,7 +797,7 @@ extern void *malloc(size_t __size) __attribute((__leaf__)) __attribute((__nothro
 #line 483
 extern void free(void *__ptr) __attribute((__leaf__)) __attribute((__nothrow__)) ;
 #line 742
-typedef int (*__compar_fn_t)(const void *arg_0x2aeb18ca2cf8, const void *arg_0x2aeb18ca1020);
+typedef int (*__compar_fn_t)(const void *arg_0x2b8ad6180cf8, const void *arg_0x2b8ad617f020);
 #line 780
 __extension__ 
 #line 797
@@ -1204,8 +1204,8 @@ typedef struct hashtable hashtable_t;
 #line 78
 struct hashtable *
 create_hashtable(unsigned int minsize, 
-unsigned int (*hashfunction)(void *arg_0x2aeb18f648e8), 
-int (*key_eq_fn)(void *arg_0x2aeb18f630c8, void *arg_0x2aeb18f63368));
+unsigned int (*hashfunction)(void *arg_0x2b8ad64428e8), 
+int (*key_eq_fn)(void *arg_0x2b8ad64410c8, void *arg_0x2b8ad6441368));
 #line 103
 #line 102
 int 
@@ -1241,7 +1241,7 @@ typedef struct sim_log_channel {
 } sim_log_channel_t;
 
 enum __nesc_unnamed4272 {
-  SIM_LOG_OUTPUT_COUNT = 188U
+  SIM_LOG_OUTPUT_COUNT = 189U
 };
 
 sim_log_output_t outputs[SIM_LOG_OUTPUT_COUNT];
@@ -1818,7 +1818,7 @@ struct tm;
 
 struct tm;
 # 46 "/usr/src/tinyos/tos/lib/tossim/randomlib.h"
-static inline void RandomInitialise(int arg_0x2aeb19174610, int arg_0x2aeb19174878);
+static inline void RandomInitialise(int arg_0x2b8ad6652610, int arg_0x2b8ad6652878);
 static inline double RandomUniform(void );
 # 51 "/usr/src/tinyos/tos/lib/tossim/sim_noise.c"
 int numCase1 = 0;
@@ -3620,6 +3620,7 @@ typedef /*HilTimerMilliC.CounterToLocalTimeC*/CounterToLocalTimeC$0$precision_ta
 typedef /*HilTimerMilliC.CounterToLocalTimeC*/CounterToLocalTimeC$0$precision_tag /*HilTimerMilliC.CounterToLocalTimeC*/CounterToLocalTimeC$0$Counter$precision_tag;
 typedef uint32_t /*HilTimerMilliC.CounterToLocalTimeC*/CounterToLocalTimeC$0$Counter$size_type;
 typedef TMilli NetworkNodeC$Timer0$precision_tag;
+typedef TMilli NetworkNodeC$Timer1$precision_tag;
 # 62 "/usr/src/tinyos/tos/interfaces/Init.nc"
 static error_t PlatformP$Init$init(void );
 #line 62
@@ -3657,11 +3658,11 @@ static error_t MeasureClockC$Init$init(void );
 # 67 "/usr/src/tinyos/tos/interfaces/TaskBasic.nc"
 static error_t SimSchedulerBasicP$TaskBasic$postTask(
 # 49 "/usr/src/tinyos/tos/lib/tossim/SimSchedulerBasicP.nc"
-uint8_t arg_0x2aeb19275020);
+uint8_t arg_0x2b8ad6753020);
 # 75 "/usr/src/tinyos/tos/interfaces/TaskBasic.nc"
 static void SimSchedulerBasicP$TaskBasic$default$runTask(
 # 49 "/usr/src/tinyos/tos/lib/tossim/SimSchedulerBasicP.nc"
-uint8_t arg_0x2aeb19275020);
+uint8_t arg_0x2b8ad6753020);
 # 57 "/usr/src/tinyos/tos/interfaces/Scheduler.nc"
 static void SimSchedulerBasicP$Scheduler$init(void );
 
@@ -3691,7 +3692,7 @@ static long long int SimMoteP$SimMote$getStartTime(void );
 # 110 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 static void TossimActiveMessageC$AMSend$default$sendDone(
 # 47 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2aeb1956a220, 
+am_id_t arg_0x2b8ad6a48220, 
 # 103 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -3710,7 +3711,7 @@ message_t *
 
 TossimActiveMessageC$Snoop$default$receive(
 # 49 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2aeb19568020, 
+am_id_t arg_0x2b8ad6a46020, 
 # 71 "/usr/src/tinyos/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -3749,7 +3750,7 @@ message_t *
 
 TossimActiveMessageC$Receive$default$receive(
 # 48 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2aeb19569340, 
+am_id_t arg_0x2b8ad6a47340, 
 # 71 "/usr/src/tinyos/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -3873,11 +3874,11 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$TimerFrom$fire
 #line 83
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$default$fired(
 # 48 "/usr/src/tinyos/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x2aeb199c5c28);
+uint8_t arg_0x2b8ad6ea3c28);
 # 64 "/usr/src/tinyos/tos/lib/timer/Timer.nc"
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startPeriodic(
 # 48 "/usr/src/tinyos/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x2aeb199c5c28, 
+uint8_t arg_0x2b8ad6ea3c28, 
 # 64 "/usr/src/tinyos/tos/lib/timer/Timer.nc"
 uint32_t dt);
 # 82 "/usr/src/tinyos/tos/lib/timer/Counter.nc"
@@ -3886,6 +3887,8 @@ static void /*HilTimerMilliC.CounterToLocalTimeC*/CounterToLocalTimeC$0$Counter$
 static void NetworkNodeC$Timer0$fired(void );
 # 60 "/usr/src/tinyos/tos/interfaces/Boot.nc"
 static void NetworkNodeC$Boot$booted(void );
+# 83 "/usr/src/tinyos/tos/lib/timer/Timer.nc"
+static void NetworkNodeC$Timer1$fired(void );
 # 62 "/usr/src/tinyos/tos/interfaces/Init.nc"
 static error_t PlatformP$MoteInit$init(void );
 #line 62
@@ -3961,7 +3964,7 @@ int sim_main_start_mote(void )   ;
 # 75 "/usr/src/tinyos/tos/interfaces/TaskBasic.nc"
 static void SimSchedulerBasicP$TaskBasic$runTask(
 # 49 "/usr/src/tinyos/tos/lib/tossim/SimSchedulerBasicP.nc"
-uint8_t arg_0x2aeb19275020);
+uint8_t arg_0x2b8ad6753020);
 
 
 
@@ -4129,7 +4132,7 @@ static am_addr_t TossimActiveMessageC$amAddress(void );
 # 110 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 static void TossimActiveMessageC$AMSend$sendDone(
 # 47 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2aeb1956a220, 
+am_id_t arg_0x2b8ad6a48220, 
 # 103 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -4148,7 +4151,7 @@ message_t *
 
 TossimActiveMessageC$Snoop$receive(
 # 49 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2aeb19568020, 
+am_id_t arg_0x2b8ad6a46020, 
 # 71 "/usr/src/tinyos/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4167,7 +4170,7 @@ message_t *
 
 TossimActiveMessageC$Receive$receive(
 # 48 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2aeb19569340, 
+am_id_t arg_0x2b8ad6a47340, 
 # 71 "/usr/src/tinyos/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4366,7 +4369,7 @@ static void LedsP$Led2$set(void );
 # 56 "/usr/src/tinyos/tos/system/LedsP.nc"
 static inline error_t LedsP$Init$init(void );
 #line 74
-static inline void LedsP$Leds$led0On(void );
+static void LedsP$Leds$led0On(void );
 
 
 
@@ -4699,7 +4702,7 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$TimerFrom$stop
 
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$fired(
 # 48 "/usr/src/tinyos/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x2aeb199c5c28);
+uint8_t arg_0x2b8ad6ea3c28);
 #line 71
 enum /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$__nesc_unnamed4333 {
 #line 71
@@ -4710,7 +4713,7 @@ typedef int /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$__nesc_sillyta
 #line 53
 enum /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$__nesc_unnamed4334 {
 
-  VirtualizeTimerC$0$NUM_TIMERS = 1U, 
+  VirtualizeTimerC$0$NUM_TIMERS = 2U, 
   VirtualizeTimerC$0$END_OF_LIST = 255
 };
 
@@ -4755,19 +4758,23 @@ static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$startTi
 
 
 
-static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startPeriodic(uint8_t num, uint32_t dt);
+static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startPeriodic(uint8_t num, uint32_t dt);
 #line 204
 static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$default$fired(uint8_t num);
 # 58 "/usr/src/tinyos/tos/lib/timer/CounterToLocalTimeC.nc"
 static inline void /*HilTimerMilliC.CounterToLocalTimeC*/CounterToLocalTimeC$0$Counter$overflow(void );
 # 64 "/usr/src/tinyos/tos/lib/timer/Timer.nc"
 static void NetworkNodeC$Timer0$startPeriodic(uint32_t dt);
+#line 64
+static void NetworkNodeC$Timer1$startPeriodic(uint32_t dt);
 # 67 "/usr/src/tinyos/tos/interfaces/Leds.nc"
 static void NetworkNodeC$Leds$led0Toggle(void );
 #line 56
 static void NetworkNodeC$Leds$led0On(void );
-# 14 "NetworkNodeC.nc"
+# 15 "NetworkNodeC.nc"
 static inline void NetworkNodeC$TurnOnLed(void );
+
+
 
 
 
@@ -4782,7 +4789,14 @@ static inline void NetworkNodeC$Boot$booted(void );
 
 
 
+
 static inline void NetworkNodeC$Timer0$fired(void );
+
+
+
+
+
+static inline void NetworkNodeC$Timer1$fired(void );
 # 78 "/usr/src/tinyos/tos/lib/tossim/heap.c"
 static inline void init_heap(heap_t *heap)
 #line 78
@@ -5168,13 +5182,13 @@ static inline message_t *TossimActiveMessageC$Snoop$default$receive(am_id_t id, 
 }
 
 # 78 "/usr/src/tinyos/tos/interfaces/Receive.nc"
-inline static message_t * TossimActiveMessageC$Snoop$receive(am_id_t arg_0x2aeb19568020, message_t * msg, void * payload, uint8_t len){
+inline static message_t * TossimActiveMessageC$Snoop$receive(am_id_t arg_0x2b8ad6a46020, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-    __nesc_result = TossimActiveMessageC$Snoop$default$receive(arg_0x2aeb19568020, msg, payload, len);
+    __nesc_result = TossimActiveMessageC$Snoop$default$receive(arg_0x2b8ad6a46020, msg, payload, len);
 #line 78
 
 #line 78
@@ -5190,13 +5204,13 @@ static inline message_t *TossimActiveMessageC$Receive$default$receive(am_id_t id
 }
 
 # 78 "/usr/src/tinyos/tos/interfaces/Receive.nc"
-inline static message_t * TossimActiveMessageC$Receive$receive(am_id_t arg_0x2aeb19569340, message_t * msg, void * payload, uint8_t len){
+inline static message_t * TossimActiveMessageC$Receive$receive(am_id_t arg_0x2b8ad6a47340, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-    __nesc_result = TossimActiveMessageC$Receive$default$receive(arg_0x2aeb19569340, msg, payload, len);
+    __nesc_result = TossimActiveMessageC$Receive$default$receive(arg_0x2b8ad6a47340, msg, payload, len);
 #line 78
 
 #line 78
@@ -5537,9 +5551,9 @@ static inline void TossimActiveMessageC$AMSend$default$sendDone(uint8_t id, mess
 }
 
 # 110 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
-inline static void TossimActiveMessageC$AMSend$sendDone(am_id_t arg_0x2aeb1956a220, message_t * msg, error_t error){
+inline static void TossimActiveMessageC$AMSend$sendDone(am_id_t arg_0x2b8ad6a48220, message_t * msg, error_t error){
 #line 110
-    TossimActiveMessageC$AMSend$default$sendDone(arg_0x2aeb1956a220, msg, error);
+    TossimActiveMessageC$AMSend$default$sendDone(arg_0x2b8ad6a48220, msg, error);
 #line 110
 }
 #line 110
@@ -5801,9 +5815,9 @@ static inline void SimSchedulerBasicP$TaskBasic$default$runTask(uint8_t id)
 }
 
 # 75 "/usr/src/tinyos/tos/interfaces/TaskBasic.nc"
-inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0x2aeb19275020){
+inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0x2b8ad6753020){
 #line 75
-  switch (arg_0x2aeb19275020) {
+  switch (arg_0x2b8ad6753020) {
 #line 75
     case TossimPacketModelC$startDoneTask:
 #line 75
@@ -5837,7 +5851,7 @@ inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0x2aeb192750
 #line 75
     default:
 #line 75
-      SimSchedulerBasicP$TaskBasic$default$runTask(arg_0x2aeb19275020);
+      SimSchedulerBasicP$TaskBasic$default$runTask(arg_0x2b8ad6753020);
 #line 75
       break;
 #line 75
@@ -5942,11 +5956,32 @@ inline static void NetworkNodeC$Leds$led0Toggle(void ){
 #line 67
 }
 #line 67
-# 29 "NetworkNodeC.nc"
+# 33 "NetworkNodeC.nc"
 static inline void NetworkNodeC$Timer0$fired(void )
 {
   NetworkNodeC$Leds$led0Toggle();
-  sim_log_debug(187U, "Led", "Led0 Toggled \n");
+  sim_log_debug(188U, "Led", "Led0 off  \n");
+}
+
+# 56 "/usr/src/tinyos/tos/interfaces/Leds.nc"
+inline static void NetworkNodeC$Leds$led0On(void ){
+#line 56
+  LedsP$Leds$led0On();
+#line 56
+}
+#line 56
+# 15 "NetworkNodeC.nc"
+static inline void NetworkNodeC$TurnOnLed(void )
+{
+  NetworkNodeC$Leds$led0On();
+  sim_log_debug(185U, "Led", "Led0 on \n");
+}
+
+#line 39
+static inline void NetworkNodeC$Timer1$fired(void )
+#line 39
+{
+  NetworkNodeC$TurnOnLed();
 }
 
 # 204 "/usr/src/tinyos/tos/lib/timer/VirtualizeTimerC.nc"
@@ -5955,9 +5990,9 @@ static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$d
 }
 
 # 83 "/usr/src/tinyos/tos/lib/timer/Timer.nc"
-inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$fired(uint8_t arg_0x2aeb199c5c28){
+inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$fired(uint8_t arg_0x2b8ad6ea3c28){
 #line 83
-  switch (arg_0x2aeb199c5c28) {
+  switch (arg_0x2b8ad6ea3c28) {
 #line 83
     case 0U:
 #line 83
@@ -5965,9 +6000,15 @@ inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$f
 #line 83
       break;
 #line 83
+    case 1U:
+#line 83
+      NetworkNodeC$Timer1$fired();
+#line 83
+      break;
+#line 83
     default:
 #line 83
-      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$default$fired(arg_0x2aeb199c5c28);
+      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$default$fired(arg_0x2b8ad6ea3c28);
 #line 83
       break;
 #line 83
@@ -5975,6 +6016,21 @@ inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$f
 #line 83
 }
 #line 83
+# 59 "/usr/src/tinyos/tos/chips/atm128/pins/sim/HplAtm128GeneralIOPinP.nc"
+static __inline void /*HplAtm128GeneralIOC.PortA.Bit2*/HplAtm128GeneralIOPinP$2$IO$clr(void )
+#line 59
+{
+#line 59
+  atm128RegFile[sim_node()][27U] &= ~(1 << 2);
+}
+
+# 41 "/usr/src/tinyos/tos/interfaces/GeneralIO.nc"
+inline static void LedsP$Led0$clr(void ){
+#line 41
+  /*HplAtm128GeneralIOC.PortA.Bit2*/HplAtm128GeneralIOPinP$2$IO$clr();
+#line 41
+}
+#line 41
 # 139 "/usr/src/tinyos/tos/lib/tossim/SimSchedulerBasicP.nc"
 static inline bool SimSchedulerBasicP$isWaiting(uint8_t id)
 {
@@ -6710,44 +6766,37 @@ inline static error_t SimMainP$SoftwareInit$init(void ){
 #line 62
 }
 #line 62
-# 59 "/usr/src/tinyos/tos/chips/atm128/pins/sim/HplAtm128GeneralIOPinP.nc"
-static __inline void /*HplAtm128GeneralIOC.PortA.Bit2*/HplAtm128GeneralIOPinP$2$IO$clr(void )
-#line 59
+# 64 "/usr/src/tinyos/tos/lib/timer/Timer.nc"
+inline static void NetworkNodeC$Timer1$startPeriodic(uint32_t dt){
+#line 64
+  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startPeriodic(1U, dt);
+#line 64
+}
+#line 64
+inline static void NetworkNodeC$Timer0$startPeriodic(uint32_t dt){
+#line 64
+  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startPeriodic(0U, dt);
+#line 64
+}
+#line 64
+# 23 "NetworkNodeC.nc"
+static inline void NetworkNodeC$Boot$booted(void )
 {
-#line 59
-  atm128RegFile[sim_node()][27U] &= ~(1 << 2);
+
+  NetworkNodeC$Timer0$startPeriodic(500);
+  NetworkNodeC$Timer1$startPeriodic(250);
+  NetworkNodeC$TurnOnLed();
+  sim_log_debug(186U, "Led", "Led0 on \n");
+  sim_log_debug(187U, "Boot", "Application Booted.\n");
 }
 
-# 41 "/usr/src/tinyos/tos/interfaces/GeneralIO.nc"
-inline static void LedsP$Led0$clr(void ){
-#line 41
-  /*HplAtm128GeneralIOC.PortA.Bit2*/HplAtm128GeneralIOPinP$2$IO$clr();
-#line 41
+# 60 "/usr/src/tinyos/tos/interfaces/Boot.nc"
+inline static void SimMainP$Boot$booted(void ){
+#line 60
+  NetworkNodeC$Boot$booted();
+#line 60
 }
-#line 41
-# 74 "/usr/src/tinyos/tos/system/LedsP.nc"
-static inline void LedsP$Leds$led0On(void )
-#line 74
-{
-  LedsP$Led0$clr();
-  sim_log_debug(149U, "LedsC", "LEDS: Led""0"" %s.\n", LedsP$Led0$get() ? "off" : "on");
-#line 76
-  ;
-}
-
-# 56 "/usr/src/tinyos/tos/interfaces/Leds.nc"
-inline static void NetworkNodeC$Leds$led0On(void ){
-#line 56
-  LedsP$Leds$led0On();
-#line 56
-}
-#line 56
-# 14 "NetworkNodeC.nc"
-static inline void NetworkNodeC$TurnOnLed(void )
-{
-  NetworkNodeC$Leds$led0On();
-}
-
+#line 60
 # 67 "/usr/src/tinyos/tos/interfaces/TaskBasic.nc"
 inline static error_t /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$updateFromTimer$postTask(void ){
 #line 67
@@ -6776,35 +6825,6 @@ static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$startTi
   /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$updateFromTimer$postTask();
 }
 
-static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startPeriodic(uint8_t num, uint32_t dt)
-{
-  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$startTimer(num, /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$TimerFrom$getNow(), dt, FALSE);
-}
-
-# 64 "/usr/src/tinyos/tos/lib/timer/Timer.nc"
-inline static void NetworkNodeC$Timer0$startPeriodic(uint32_t dt){
-#line 64
-  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startPeriodic(0U, dt);
-#line 64
-}
-#line 64
-# 20 "NetworkNodeC.nc"
-static inline void NetworkNodeC$Boot$booted(void )
-{
-
-  NetworkNodeC$Timer0$startPeriodic(500);
-  NetworkNodeC$TurnOnLed();
-  sim_log_debug(185U, "Led", "Led0 on \n");
-  sim_log_debug(186U, "Boot", "Application Booted.\n");
-}
-
-# 60 "/usr/src/tinyos/tos/interfaces/Boot.nc"
-inline static void SimMainP$Boot$booted(void ){
-#line 60
-  NetworkNodeC$Boot$booted();
-#line 60
-}
-#line 60
 # 55 "/usr/src/tinyos/tos/lib/tossim/SimMoteP.nc"
 static inline long long int SimMoteP$SimMote$getEuid(void )
 #line 55
@@ -8500,6 +8520,16 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$fireTimers(uin
   /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$updateFromTimer$postTask();
 }
 
+# 74 "/usr/src/tinyos/tos/system/LedsP.nc"
+static void LedsP$Leds$led0On(void )
+#line 74
+{
+  LedsP$Led0$clr();
+  sim_log_debug(149U, "LedsC", "LEDS: Led""0"" %s.\n", LedsP$Led0$get() ? "off" : "on");
+#line 76
+  ;
+}
+
 # 205 "/usr/src/tinyos/tos/lib/tossim/SimSchedulerBasicP.nc"
 static error_t SimSchedulerBasicP$TaskBasic$postTask(uint8_t id)
 {
@@ -8765,6 +8795,12 @@ static void HplAtm128Timer0AsyncP$configure_compare(sim_event_t *evt)
   sim_log_debug(171U, "HplAtm128Timer0AsyncP", "Configuring new compare of %i for %i at time %llu  (@ %llu)\n", (int )compareVal, sim_node(), compareTime, sim_time());
 
   evt->time = compareTime;
+}
+
+# 154 "/usr/src/tinyos/tos/lib/timer/VirtualizeTimerC.nc"
+static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$Timer$startPeriodic(uint8_t num, uint32_t dt)
+{
+  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$startTimer(num, /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC$0$TimerFrom$getNow(), dt, FALSE);
 }
 
 # 90 "/usr/src/tinyos/tos/lib/tossim/SimMoteP.nc"
