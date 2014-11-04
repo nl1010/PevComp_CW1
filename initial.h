@@ -2,10 +2,10 @@
 #define INITIAL_H
 
 
-typedef nx_struct NodeToNodeMsg_t { 
+typedef nx_struct NodeToNodeMsg { 
 	nx_uint16_t NodeID;
 	nx_uint8_t Data;
-} NodeToNodeMsg_t;
+} NodeToNodeMsg;
 
 
 //define constant by using enum in C

@@ -26,6 +26,5 @@ implementation
     NetworkNodeC.AMSend -> AMSenderC;
     NetworkNodeC.AMControl -> ActiveMessageC;
     NetworkNodeC.Receive -> AMReceiverC;
-
 }
 

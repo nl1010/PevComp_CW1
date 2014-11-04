@@ -41,10 +41,10 @@ implementation
     //TurnOnLed();
 
     //dbg("Led","Led0 on \n");
-    //dbg("Boot","Application Booted.\n");
+    dbg("Boot","Mote Booted.\n");
 
     call AMControl.start(); //enable the radio chip
-
+    dbg("Boot","Module:AMControl->Starting...\n");
   }
 
 
@@ -56,49 +56,55 @@ implementation
 //AMSend has an event named 'sendDone' ,this will triggered when sending is completed  
   event void AMSend.sendDone(message_t *msg,error_t error){
     //check send message msg == _packet => send the right data , switch off _radioBusy flag
-
+    if (msg == &_packet){
+      _radioBusy = FALSE;
+      dbg("Boot","Message sended \n");
+    }else {
+      dbg("Boot","message sended but not correct.\n");
+    }
+    
   }
 
 //AMControl has an event named 'startDone', will triggered AMControl is started , use to check if AMControl is really started 
   event void AMControl.startDone(error_t error){
     if (error == SUCCESS) {
-      dbg("AMControl","Module online: AMControl\n");
-
       //send radio packet here 
       //*****1.CREATING RADIO PACKET******
-      //NodeToNodeMsg_t* msg = call Packet.getPayload(&_packet,sizeof(NodeToNodeMsg_t));
-      //msg->NodeID = TOS_NODE_ID;
-      //msg->Data = (uint8_t) 123;
+      NodeToNodeMsg* msg =(NodeToNodeMsg*) call Packet.getPayload(&_packet,sizeof(NodeToNodeMsg));
+      msg->NodeID = TOS_NODE_ID;
+      msg->Data = (uint8_t)123; 
+      dbg("Boot","Module:AMControl->Message assignment complete,Node ID->%d , Data->%d ready to sent.\n",msg->NodeID,msg->Data);
 
 
       //*****2.SEND RADIO PACKET******
-      //if (call AMSend.send xxxx == true) { _radioBusy = TRUE;}       
+      if (call AMSend.send(AM_BROADCAST_ADDR,&_packet,sizeof(NodeToNodeMsg)) == SUCCESS) {
+       _radioBusy = TRUE;
+       dbg("Boot","Module:AMControl->Msg Sending. Node ID->%d , Data->%d\n",msg->NodeID,msg->Data);
+      }       
     }
     else {
       call AMControl.start();
-      dbg("AMControl","AMControl cannot boot, retry\n"); 
+      dbg("Boot","AMControl cannot boot, retry\n"); 
     }
   }
 
 //check it's really stoped or not 
   event void AMControl.stopDone(error_t error){
-
   }
 
 
-//if the node received a parkage 
-  event message_t * Receive.receive(message_t *msg,void *payload,uint8_t len){
+//if the node received a parkage then execute this event 
+  event message_t* Receive.receive(message_t *msg,void *payload,uint8_t len){
     //check if it's the right packet 
-  /*
-    if (len == sizeof (NodeToNodeMsg_t)){
-      NodeToNode * incomingPacket = (NodeToNodeMsg_t *) payload;
+  
+    if (len == sizeof (NodeToNodeMsg)){
+      NodeToNodeMsg * incomingPacket = (NodeToNodeMsg *) payload;
 
       uint8_t data = incomingPacket -> Data;
-      if (data == xx ){
-        do ... 
+      if (data == 123 ){
+        dbg("Boot","Module:AMControl->Message assignment complete,Node ID->%d , ready to sent.\n",incomingPacket->NodeID);
       }
     }
-  */
   }
 
 
