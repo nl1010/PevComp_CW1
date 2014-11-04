@@ -1,15 +1,15 @@
-#include "Timer.h"
+//#include "Timer.h"
+#include "initial.h"
 
 module NetworkNodeC 
 {
 
   uses //general
   {
-  uses interface Timer<TMilli> as Timer0;
-  uses interface Timer<TMilli> as Timer1;
-  uses interface Boot; 
-  uses interface Leds;
-  
+  //interface Timer<TMilli> as Timer0;
+  //interface Timer<TMilli> as Timer1;
+  interface Boot; 
+  //interface Leds;
   }
   
 
@@ -27,29 +27,15 @@ module NetworkNodeC
 implementation
 {
 
-
 //global variables 
-  bool _radioBusy = FALSE; //_xxx indicates variables , habbit 
+  bool _radioBusy = FALSE; //indicates radio status , prevent clash  
   message_t _packet;
 
 
-// //functions 
-//     void TurnOnLed()
-//     {
-//       call Leds.led0On();
-//       dbg("Led","Led0 on \n");
-
-//     }
-
-//events 
-
-
-
-
-
+//main events 
   event void Boot.booted()
   {
-
+ 
    // call Timer0.startPeriodic(500);
     //call Timer1.startPeriodic(250);
     //TurnOnLed();
@@ -57,7 +43,6 @@ implementation
     //dbg("Led","Led0 on \n");
     //dbg("Boot","Application Booted.\n");
 
-    call Notify.enable(); //ASA booted , enable the notify for the user button
     call AMControl.start(); //enable the radio chip
 
   }
@@ -66,21 +51,28 @@ implementation
 
 
 
-//events implemented 
+//implemented event from interfaces  
 
 //AMSend has an event named 'sendDone' ,this will triggered when sending is completed  
   event void AMSend.sendDone(message_t *msg,error_t error){
+    //check send message msg == _packet => send the right data , switch off _radioBusy flag
 
   }
 
 //AMControl has an event named 'startDone', will triggered AMControl is started , use to check if AMControl is really started 
   event void AMControl.startDone(error_t error){
     if (error == SUCCESS) {
-      dbg("AMControl","AMControl online\n");
+      dbg("AMControl","Module online: AMControl\n");
 
       //send radio packet here 
-      //1.creating radio packet 
-     // NodeToNode
+      //*****1.CREATING RADIO PACKET******
+      //NodeToNodeMsg_t* msg = call Packet.getPayload(&_packet,sizeof(NodeToNodeMsg_t));
+      //msg->NodeID = TOS_NODE_ID;
+      //msg->Data = (uint8_t) 123;
+
+
+      //*****2.SEND RADIO PACKET******
+      //if (call AMSend.send xxxx == true) { _radioBusy = TRUE;}       
     }
     else {
       call AMControl.start();
@@ -93,24 +85,21 @@ implementation
 
   }
 
-  event message_t * Receive.recevie(message_t *msg,void *payload,uint8_t len){
-    return msg;
+
+//if the node received a parkage 
+  event message_t * Receive.receive(message_t *msg,void *payload,uint8_t len){
+    //check if it's the right packet 
+  /*
+    if (len == sizeof (NodeToNodeMsg_t)){
+      NodeToNode * incomingPacket = (NodeToNodeMsg_t *) payload;
+
+      uint8_t data = incomingPacket -> Data;
+      if (data == xx ){
+        do ... 
+      }
+    }
+  */
   }
 
 
-
-
-
-
-
-  // event void Timer0.fired()
-  // {
-  //   call Leds.led0Toggle(); //switch off the led 
-  //   dbg("Led","Led0 off  \n");
-  // }
-
-  // event void Timer1.fired(){
-  //   TurnOnLed();
-  // }
-  
 }
