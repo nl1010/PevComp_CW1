@@ -10,7 +10,7 @@ implementation
   //GENERAL 
     components NetworkNodeC;
     components MainC;
-    //components new TimerMilliC() as Timer0;
+    components new TimerMilliC() as TimerC;
 
     NetworkNodeC-> MainC.Boot;
   //NetworkNodeC.Timer0 -> Timer0;
@@ -26,5 +26,6 @@ implementation
     NetworkNodeC.AMSend -> AMSenderC;
     NetworkNodeC.AMControl -> ActiveMessageC;
     NetworkNodeC.Receive -> AMReceiverC;
+    NetworkNodeC.DisseminationTriggerTimer -> TimerC;
 }
 

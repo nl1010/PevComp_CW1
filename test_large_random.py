@@ -7,6 +7,7 @@ r = t.radio()
 mote_num = 50  #number of motes counted from gain topology 
 t.addChannel ("System",sys.stdout)
 t.addChannel ("Channel",sys.stdout)
+t.addChannel ("Flag",sys.stdout)
 #mapping gain 
 f = open("large_random.out", "r")
 print "Mapping Gain:"

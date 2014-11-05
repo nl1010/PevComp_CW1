@@ -3,7 +3,7 @@
 
 typedef nx_struct NodeToNodeMsg { 
 	nx_uint16_t NodeID;
-	nx_uint8_t Data;
+	nx_uint16_t Data;
 } NodeToNodeMsg;
 
 
