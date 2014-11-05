@@ -1,5 +1,5 @@
 #include "initial.h"
-
+#include "node_to_node_msg.h"
 configuration NetworkNodeAppC
 {
 }

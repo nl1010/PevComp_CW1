@@ -1,5 +1,6 @@
 //#include "Timer.h"
 #include "initial.h"
+#include "node_to_node_msg.h"
 
 module NetworkNodeC 
 {
@@ -30,6 +31,7 @@ implementation
 //global variables 
   bool _radioBusy = FALSE; //indicates radio status , prevent clash  
   message_t _packet;
+  uint8_t ready_to_sent_data; //helper
 
 
 //main events 
@@ -41,10 +43,10 @@ implementation
     //TurnOnLed();
 
     //dbg("Led","Led0 on \n");
-    dbg("Boot","Mote Booted.\n");
+    dbg("System","Mote Booted.\n");
 
     call AMControl.start(); //enable the radio chip
-    dbg("Boot","Module:AMControl->Starting...\n");
+   // dbg("Boot","Module:AMControl->Starting...\n");
   }
 
 
@@ -55,9 +57,10 @@ implementation
     //check send message msg == _packet => send the right data , switch off _radioBusy flag
     if (msg == &_packet){
       _radioBusy = FALSE;
-      dbg("Boot","Message sended \n");
+      //dbg("Boot","Message sended \n");
+
     }else {
-      dbg("Boot","message sended but not correct.\n");
+      dbg("System","message sended but not correct.\n");
     }
     
   }
@@ -70,19 +73,22 @@ implementation
        //dbg("Boot","Module:AMControl->Started\n");
       NodeToNodeMsg* msg =(NodeToNodeMsg*) call Packet.getPayload(&_packet,sizeof(NodeToNodeMsg));
       msg->NodeID = TOS_NODE_ID;
-      msg->Data = (uint8_t)123; 
-      dbg("Boot","Module:AMControl->Message assignment complete,Node ID->%d , Data->%d ready to sent.\n",msg->NodeID,msg->Data);
+      msg->Data = (uint8_t)888; 
+     // dbg("Boot","Module:AMControl->Message assignment complete,Node ID->%d , Data->%d ready to sent.\n",msg->NodeID,msg->Data);
 
 
       //*****2.SEND RADIO PACKET******
       if (call AMSend.send(AM_BROADCAST_ADDR,&_packet,sizeof(NodeToNodeMsg)) == SUCCESS) {
        _radioBusy = TRUE;
-       dbg("Boot","Module:AMControl->Msg Sending. Node ID->%d , Data->%d\n",msg->NodeID,msg->Data);
+       //dbg("Boot","Module:AMControl->Msg Sending. Node ID->%d , Data->%d\n",msg->NodeID,msg->Data);
+        dbg("Channel","%s SND %hhu \n",sim_time_string(),msg->Data);
+
+        ready_to_sent_data = msg->Data;
       }       
     }
     else {
       call AMControl.start();
-      dbg("Boot","AMControl cannot boot, retry\n"); 
+      dbg("System","AMControl cannot boot, retry\n"); 
     }
   }
 
@@ -94,17 +100,17 @@ implementation
 //if the node received a parkage then execute this event 
   event message_t* Receive.receive(message_t* msg,void* payload,uint8_t len){
     //check if it's the right packet 
-        dbg("Boot","Received\n"); 
+        //dbg("Boot","Received\n"); 
 
     if (len == sizeof (NodeToNodeMsg)){
       //dbg("Boot","Checked\n"); 
       NodeToNodeMsg* incomingPacket = (NodeToNodeMsg*) payload;
       uint8_t data = incomingPacket -> Data;
       uint16_t node_id = incomingPacket -> NodeID;
-        dbg("Boot","Right message received with length:%hhu, data:%hhu,from node %hhu.\n",len,data);
+        dbg("Channel","%s RCV %hhu %hhu \n",sim_time_string(),data,node_id);
         return msg;  //avoid segmentation fault 
     } else {
-      dbg("Boot","Incorrect message received\n");
+      dbg("System","Incorrect message received\n");
         return msg;
     }
 

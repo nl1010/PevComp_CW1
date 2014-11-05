@@ -5,7 +5,8 @@ t = Tossim ([])
 r = t.radio()
 
 mote_num = 50  #number of motes counted from gain topology 
-
+t.addChannel ("System",sys.stdout)
+t.addChannel ("Channel",sys.stdout)
 #mapping gain 
 f = open("large_random.out", "r")
 print "Mapping Gain:"
@@ -14,8 +15,8 @@ for line in f:
 	if s:
 		if s[0] =="gain":
 			r.add(int(s[1]),int(s[2]),float(s[3]))
-			print "",s[1]," >> ",s[2]," : ",s[3],"success"
-t.addChannel ("Boot",sys.stdout)
+			print "From",s[1]," to ",s[2]," : ",s[3],"success"
+
 
 #trace noise 
 noise = open("meyer-heavy.txt", "r")
