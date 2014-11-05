@@ -797,7 +797,7 @@ extern void *malloc(size_t __size) __attribute((__leaf__)) __attribute((__nothro
 #line 483
 extern void free(void *__ptr) __attribute((__leaf__)) __attribute((__nothrow__)) ;
 #line 742
-typedef int (*__compar_fn_t)(const void *arg_0x2af6843a4cf8, const void *arg_0x2af6843a3020);
+typedef int (*__compar_fn_t)(const void *arg_0x2aaff32bfcf8, const void *arg_0x2aaff32be020);
 #line 780
 __extension__ 
 #line 797
@@ -815,7 +815,7 @@ extern double sqrt(double __x) __attribute((__leaf__)) __attribute((__nothrow__)
 #line 184
 extern double floor(double __x) __attribute((__leaf__)) __attribute((__nothrow__)) __attribute((const)) ;
 #line 250
-extern double erfc(double arg_0x2af684425618) __attribute((__leaf__)) __attribute((__nothrow__)) ;
+extern double erfc(double arg_0x2aaff3340618) __attribute((__leaf__)) __attribute((__nothrow__)) ;
 #line 326
 __extension__ 
 
@@ -1215,8 +1215,8 @@ typedef struct hashtable hashtable_t;
 #line 78
 struct hashtable *
 create_hashtable(unsigned int minsize, 
-unsigned int (*hashfunction)(void *arg_0x2af6846668e8), 
-int (*key_eq_fn)(void *arg_0x2af6846650c8, void *arg_0x2af684665368));
+unsigned int (*hashfunction)(void *arg_0x2aaff35818e8), 
+int (*key_eq_fn)(void *arg_0x2aaff35800c8, void *arg_0x2aaff3580368));
 #line 103
 #line 102
 int 
@@ -1822,7 +1822,7 @@ struct tm;
 
 struct tm;
 # 46 "/usr/src/tinyos/tos/lib/tossim/randomlib.h"
-static inline void RandomInitialise(int arg_0x2af684876610, int arg_0x2af684876878);
+static inline void RandomInitialise(int arg_0x2aaff3791610, int arg_0x2aaff3791878);
 static double RandomUniform(void );
 # 51 "/usr/src/tinyos/tos/lib/tossim/sim_noise.c"
 int numCase1 = 0;
@@ -3360,11 +3360,11 @@ static error_t MeasureClockC$Init$init(void );
 # 67 "/usr/src/tinyos/tos/interfaces/TaskBasic.nc"
 static error_t SimSchedulerBasicP$TaskBasic$postTask(
 # 49 "/usr/src/tinyos/tos/lib/tossim/SimSchedulerBasicP.nc"
-uint8_t arg_0x2af684977020);
+uint8_t arg_0x2aaff3892020);
 # 75 "/usr/src/tinyos/tos/interfaces/TaskBasic.nc"
 static void SimSchedulerBasicP$TaskBasic$default$runTask(
 # 49 "/usr/src/tinyos/tos/lib/tossim/SimSchedulerBasicP.nc"
-uint8_t arg_0x2af684977020);
+uint8_t arg_0x2aaff3892020);
 # 57 "/usr/src/tinyos/tos/interfaces/Scheduler.nc"
 static void SimSchedulerBasicP$Scheduler$init(void );
 
@@ -3394,7 +3394,7 @@ static long long int SimMoteP$SimMote$getStartTime(void );
 # 80 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 static error_t TossimActiveMessageC$AMSend$send(
 # 47 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2af684c9e060, 
+am_id_t arg_0x2aaff3bb8060, 
 # 80 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 am_addr_t addr, 
 #line 71
@@ -3417,7 +3417,7 @@ message_t *
 
 TossimActiveMessageC$Snoop$default$receive(
 # 49 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2af684c9dce8, 
+am_id_t arg_0x2aaff3bb7ce8, 
 # 71 "/usr/src/tinyos/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -3464,7 +3464,7 @@ message_t *
 
 TossimActiveMessageC$Receive$default$receive(
 # 48 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2af684c9d1a0, 
+am_id_t arg_0x2aaff3bb71a0, 
 # 71 "/usr/src/tinyos/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -3584,7 +3584,7 @@ error_t error);
 # 110 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$sendDone(
 # 48 "/usr/src/tinyos/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x2af684eab488, 
+am_id_t arg_0x2aaff3dc5488, 
 # 103 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -3597,7 +3597,7 @@ error_t error);
 # 75 "/usr/src/tinyos/tos/interfaces/Send.nc"
 static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$send(
 # 46 "/usr/src/tinyos/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x2af684e74318, 
+uint8_t arg_0x2aaff3dc6318, 
 # 67 "/usr/src/tinyos/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -3611,7 +3611,7 @@ uint8_t len);
 #line 100
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$default$sendDone(
 # 46 "/usr/src/tinyos/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x2af684e74318, 
+uint8_t arg_0x2aaff3dc6318, 
 # 96 "/usr/src/tinyos/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -3713,7 +3713,7 @@ int sim_main_start_mote(void )   ;
 # 75 "/usr/src/tinyos/tos/interfaces/TaskBasic.nc"
 static void SimSchedulerBasicP$TaskBasic$runTask(
 # 49 "/usr/src/tinyos/tos/lib/tossim/SimSchedulerBasicP.nc"
-uint8_t arg_0x2af684977020);
+uint8_t arg_0x2aaff3892020);
 
 
 
@@ -3881,7 +3881,7 @@ static am_addr_t TossimActiveMessageC$amAddress(void );
 # 110 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 static void TossimActiveMessageC$AMSend$sendDone(
 # 47 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2af684c9e060, 
+am_id_t arg_0x2aaff3bb8060, 
 # 103 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -3900,7 +3900,7 @@ message_t *
 
 TossimActiveMessageC$Snoop$receive(
 # 49 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2af684c9dce8, 
+am_id_t arg_0x2aaff3bb7ce8, 
 # 71 "/usr/src/tinyos/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -3919,7 +3919,7 @@ message_t *
 
 TossimActiveMessageC$Receive$receive(
 # 48 "/usr/src/tinyos/tos/lib/tossim/TossimActiveMessageC.nc"
-am_id_t arg_0x2af684c9d1a0, 
+am_id_t arg_0x2aaff3bb71a0, 
 # 71 "/usr/src/tinyos/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4335,7 +4335,7 @@ static inline void /*NetworkNodeAppC.AMSenderC.SenderC.AMQueueEntryP*/AMQueueEnt
 # 80 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$send(
 # 48 "/usr/src/tinyos/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x2af684eab488, 
+am_id_t arg_0x2aaff3dc5488, 
 # 80 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
 am_addr_t addr, 
 #line 71
@@ -4352,7 +4352,7 @@ uint8_t len);
 # 100 "/usr/src/tinyos/tos/interfaces/Send.nc"
 static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$sendDone(
 # 46 "/usr/src/tinyos/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x2af684e74318, 
+uint8_t arg_0x2aaff3dc6318, 
 # 96 "/usr/src/tinyos/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -4796,6 +4796,26 @@ static inline bool TossimActiveMessageC$AMPacket$isForMe(message_t *amsg)
   TossimActiveMessageC$AMPacket$destination(amsg) == AM_BROADCAST_ADDR;
 }
 
+# 310 "/usr/lib/ncc/nesc_nx.h"
+static __inline  uint16_t __nesc_ntoh_uint16(const void * source)
+#line 310
+{
+  const uint8_t *base = source;
+
+#line 312
+  return ((uint16_t )base[0] << 8) | base[1];
+}
+
+#line 281
+static __inline  uint8_t __nesc_ntoh_uint8(const void * source)
+#line 281
+{
+  const uint8_t *base = source;
+
+#line 283
+  return base[0];
+}
+
 # 98 "NetworkNodeC.nc"
 static inline message_t *NetworkNodeC$Receive$receive(message_t *msg, void *payload, uint8_t len)
 #line 98
@@ -4806,11 +4826,14 @@ static inline message_t *NetworkNodeC$Receive$receive(message_t *msg, void *payl
   if (len == sizeof(NodeToNodeMsg )) {
 
       NodeToNodeMsg *incomingPacket = (NodeToNodeMsg *)payload;
+      uint8_t data = __nesc_ntoh_uint8(incomingPacket->Data.nxdata);
+      uint16_t node_id = __nesc_ntoh_uint16(incomingPacket->NodeID.nxdata);
 
-      sim_log_debug(54U, "Boot", "Right message received\n");
+#line 107
+      sim_log_debug(54U, "Boot", "Right message received with length:%hhu, data:%hhu,from node %hhu.\n", len, data);
     }
   else {
-      sim_log_debug(55U, "Boot", "incorrect message\n");
+      sim_log_debug(55U, "Boot", "Incorrect message received\n");
     }
 }
 
@@ -4822,13 +4845,13 @@ static inline message_t *TossimActiveMessageC$Receive$default$receive(am_id_t id
 }
 
 # 78 "/usr/src/tinyos/tos/interfaces/Receive.nc"
-inline static message_t * TossimActiveMessageC$Receive$receive(am_id_t arg_0x2af684c9d1a0, message_t * msg, void * payload, uint8_t len){
+inline static message_t * TossimActiveMessageC$Receive$receive(am_id_t arg_0x2aaff3bb71a0, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-  switch (arg_0x2af684c9d1a0) {
+  switch (arg_0x2aaff3bb71a0) {
 #line 78
     case 6:
 #line 78
@@ -4838,7 +4861,7 @@ inline static message_t * TossimActiveMessageC$Receive$receive(am_id_t arg_0x2af
 #line 78
     default:
 #line 78
-      __nesc_result = TossimActiveMessageC$Receive$default$receive(arg_0x2af684c9d1a0, msg, payload, len);
+      __nesc_result = TossimActiveMessageC$Receive$default$receive(arg_0x2aaff3bb71a0, msg, payload, len);
 #line 78
       break;
 #line 78
@@ -4858,13 +4881,13 @@ static inline message_t *TossimActiveMessageC$Snoop$default$receive(am_id_t id, 
 }
 
 # 78 "/usr/src/tinyos/tos/interfaces/Receive.nc"
-inline static message_t * TossimActiveMessageC$Snoop$receive(am_id_t arg_0x2af684c9dce8, message_t * msg, void * payload, uint8_t len){
+inline static message_t * TossimActiveMessageC$Snoop$receive(am_id_t arg_0x2aaff3bb7ce8, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-    __nesc_result = TossimActiveMessageC$Snoop$default$receive(arg_0x2af684c9dce8, msg, payload, len);
+    __nesc_result = TossimActiveMessageC$Snoop$default$receive(arg_0x2aaff3bb7ce8, msg, payload, len);
 #line 78
 
 #line 78
@@ -4979,27 +5002,7 @@ static inline uint8_t SimSchedulerBasicP$popTask(void )
     }
 }
 
-# 281 "/usr/lib/ncc/nesc_nx.h"
-static __inline  uint8_t __nesc_ntoh_uint8(const void * source)
-#line 281
-{
-  const uint8_t *base = source;
-
-#line 283
-  return base[0];
-}
-
-#line 310
-static __inline  uint16_t __nesc_ntoh_uint16(const void * source)
-#line 310
-{
-  const uint8_t *base = source;
-
-#line 312
-  return ((uint16_t )base[0] << 8) | base[1];
-}
-
-#line 286
+# 286 "/usr/lib/ncc/nesc_nx.h"
 static __inline  uint8_t __nesc_hton_uint8(void * target, uint8_t value)
 #line 286
 {
@@ -5038,13 +5041,13 @@ inline static error_t NetworkNodeC$AMControl$start(void ){
 }
 #line 104
 # 80 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
-inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$send(am_id_t arg_0x2af684eab488, am_addr_t addr, message_t * msg, uint8_t len){
+inline static error_t /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$send(am_id_t arg_0x2aaff3dc5488, am_addr_t addr, message_t * msg, uint8_t len){
 #line 80
   unsigned char __nesc_result;
 #line 80
 
 #line 80
-  __nesc_result = TossimActiveMessageC$AMSend$send(arg_0x2af684eab488, addr, msg, len);
+  __nesc_result = TossimActiveMessageC$AMSend$send(arg_0x2aaff3dc5488, addr, msg, len);
 #line 80
 
 #line 80
@@ -5319,9 +5322,9 @@ static __inline  int8_t __nesc_hton_int8(void * target, int8_t value)
 }
 
 # 110 "/usr/src/tinyos/tos/interfaces/AMSend.nc"
-inline static void TossimActiveMessageC$AMSend$sendDone(am_id_t arg_0x2af684c9e060, message_t * msg, error_t error){
+inline static void TossimActiveMessageC$AMSend$sendDone(am_id_t arg_0x2aaff3bb8060, message_t * msg, error_t error){
 #line 110
-  /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$sendDone(arg_0x2af684c9e060, msg, error);
+  /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$AMSend$sendDone(arg_0x2aaff3bb8060, msg, error);
 #line 110
 }
 #line 110
@@ -5389,9 +5392,9 @@ static inline void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$default$sendDone
 }
 
 # 100 "/usr/src/tinyos/tos/interfaces/Send.nc"
-inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$sendDone(uint8_t arg_0x2af684e74318, message_t * msg, error_t error){
+inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$sendDone(uint8_t arg_0x2aaff3dc6318, message_t * msg, error_t error){
 #line 100
-  switch (arg_0x2af684e74318) {
+  switch (arg_0x2aaff3dc6318) {
 #line 100
     case 0U:
 #line 100
@@ -5401,7 +5404,7 @@ inline static void /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$sendDone(uint8_t
 #line 100
     default:
 #line 100
-      /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$default$sendDone(arg_0x2af684e74318, msg, error);
+      /*AMQueueP.AMQueueImplP*/AMQueueImplP$0$Send$default$sendDone(arg_0x2aaff3dc6318, msg, error);
 #line 100
       break;
 #line 100
@@ -5445,9 +5448,9 @@ static inline void SimSchedulerBasicP$TaskBasic$default$runTask(uint8_t id)
 }
 
 # 75 "/usr/src/tinyos/tos/interfaces/TaskBasic.nc"
-inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0x2af684977020){
+inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0x2aaff3892020){
 #line 75
-  switch (arg_0x2af684977020) {
+  switch (arg_0x2aaff3892020) {
 #line 75
     case TossimPacketModelC$startDoneTask:
 #line 75
@@ -5481,7 +5484,7 @@ inline static void SimSchedulerBasicP$TaskBasic$runTask(uint8_t arg_0x2af6849770
 #line 75
     default:
 #line 75
-      SimSchedulerBasicP$TaskBasic$default$runTask(arg_0x2af684977020);
+      SimSchedulerBasicP$TaskBasic$default$runTask(arg_0x2aaff3892020);
 #line 75
       break;
 #line 75

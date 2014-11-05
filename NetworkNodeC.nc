@@ -102,11 +102,12 @@ implementation
     if (len == sizeof (NodeToNodeMsg)){
       //dbg("Boot","Checked\n"); 
       NodeToNodeMsg* incomingPacket = (NodeToNodeMsg*) payload;
-      // /uint8_t data = incomingPacket -> Data;
-        dbg("Boot","Right message received\n");
+      uint8_t data = incomingPacket -> Data;
+      uint16_t node_id = incomingPacket -> NodeID;
+        dbg("Boot","Right message received with length:%hhu, data:%hhu,from node %hhu.\n",len,data);
 
     } else {
-      dbg("Boot","incorrect message\n");
+      dbg("Boot","Incorrect message received\n");
     }
 
   }
