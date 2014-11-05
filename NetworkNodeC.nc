@@ -48,9 +48,6 @@ implementation
   }
 
 
-
-
-
 //implemented event from interfaces  
 
 //AMSend has an event named 'sendDone' ,this will triggered when sending is completed  
@@ -105,9 +102,10 @@ implementation
       uint8_t data = incomingPacket -> Data;
       uint16_t node_id = incomingPacket -> NodeID;
         dbg("Boot","Right message received with length:%hhu, data:%hhu,from node %hhu.\n",len,data);
-
+        return msg;  //avoid segmentation fault 
     } else {
       dbg("Boot","Incorrect message received\n");
+        return msg;
     }
 
   }

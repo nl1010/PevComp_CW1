@@ -33,9 +33,12 @@ for i in range(0, mote_num):
 
 #set boot time 
 for i in range(0, mote_num):
-	t.getNode(i).bootAtTime(10000)
+	boot_time = i*500
+	t.getNode(i).bootAtTime(boot_time)
 
 
-#run motes 
-for i in range (0, mote_num*100):
-	t.runNextEvent()	
+# /run motes 
+while True:
+	t.runNextEvent()
+# for i in range (0, 1000):
+# 	t.runNextEvent()	
