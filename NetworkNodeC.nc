@@ -98,13 +98,17 @@ implementation
   event message_t* Receive.receive(message_t* msg,void* payload,uint8_t len){
     //check if it's the right packet 
         dbg("Boot","Received\n"); 
+
     if (len == sizeof (NodeToNodeMsg)){
-      dbg("Boot","Checked\n"); 
+      //dbg("Boot","Checked\n"); 
       NodeToNodeMsg* incomingPacket = (NodeToNodeMsg*) payload;
       // /uint8_t data = incomingPacket -> Data;
-        dbg("Boot","Module:AMControl->Message assignment complete,Node ID->%d , ready to sent.\n",incomingPacket->NodeID);
+        dbg("Boot","Right message received\n");
 
+    } else {
+      dbg("Boot","incorrect message\n");
     }
+
   }
 
 
