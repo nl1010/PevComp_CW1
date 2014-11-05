@@ -1,6 +1,6 @@
 //#include "Timer.h"
 #include "initial.h"
-#include "node_to_node_msg.h"
+//#include "node_to_node_msg.h"
 
 module NetworkNodeC 
 {
@@ -71,6 +71,7 @@ implementation
       //=====SEND RADIO PACKET when start done
       //*****1.CREATING RADIO PACKET******
        //dbg("Boot","Module:AMControl->Started\n");
+      if (TOS_NODE_ID == INITIAL_NODE){
       NodeToNodeMsg* msg =(NodeToNodeMsg*) call Packet.getPayload(&_packet,sizeof(NodeToNodeMsg));
       msg->NodeID = TOS_NODE_ID;
       msg->Data = (uint8_t)888; 
@@ -86,6 +87,7 @@ implementation
         ready_to_sent_data = msg->Data;
       }       
     }
+  }
     else {
       call AMControl.start();
       dbg("System","AMControl cannot boot, retry\n"); 
