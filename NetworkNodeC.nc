@@ -150,13 +150,13 @@ event message_t* Receive.receive(message_t* msg,void* payload,uint8_t len){
       dbg("Channel","%s RCV %hhu %hhu \n",sim_time_string(),data,node_id);
       dbg("Flag","Package holded\n"); 
       _holded_data = data; //store to the device for forwarding
-          return msg;  //avoid segmentation fault 
-        
-
+          return msg;  //avoid segmentation fault  
         } else {
           dbg("System","Incorrect message received\n");
           return msg;
         }
+      }else {
+        return msg;
       }
 
   }
