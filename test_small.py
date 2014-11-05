@@ -40,5 +40,7 @@ for i in range(0, mote_num):
 
 
 #run motes 
-for i in range (mote_num):
-	t.runNextEvent()	
+while True: 
+	t.runNextEvent() 
+# for i in range (10000):
+# 	t.runNextEvent()	

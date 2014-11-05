@@ -68,8 +68,9 @@ implementation
 //AMControl has an event named 'startDone', will triggered AMControl is started , use to check if AMControl is really started 
   event void AMControl.startDone(error_t error){
     if (error == SUCCESS) {
-      //send radio packet here 
+      //=====SEND RADIO PACKET when start done
       //*****1.CREATING RADIO PACKET******
+       //dbg("Boot","Module:AMControl->Started\n");
       NodeToNodeMsg* msg =(NodeToNodeMsg*) call Packet.getPayload(&_packet,sizeof(NodeToNodeMsg));
       msg->NodeID = TOS_NODE_ID;
       msg->Data = (uint8_t)123; 
@@ -94,16 +95,15 @@ implementation
 
 
 //if the node received a parkage then execute this event 
-  event message_t* Receive.receive(message_t *msg,void *payload,uint8_t len){
+  event message_t* Receive.receive(message_t* msg,void* payload,uint8_t len){
     //check if it's the right packet 
-  
+        dbg("Boot","Received\n"); 
     if (len == sizeof (NodeToNodeMsg)){
-      NodeToNodeMsg * incomingPacket = (NodeToNodeMsg *) payload;
-
-      uint8_t data = incomingPacket -> Data;
-      if (data == 123 ){
+      dbg("Boot","Checked\n"); 
+      NodeToNodeMsg* incomingPacket = (NodeToNodeMsg*) payload;
+      // /uint8_t data = incomingPacket -> Data;
         dbg("Boot","Module:AMControl->Message assignment complete,Node ID->%d , ready to sent.\n",incomingPacket->NodeID);
-      }
+
     }
   }
 

@@ -37,5 +37,5 @@ for i in range(0, mote_num):
 
 
 #run motes 
-for i in range (0, mote_num):
+for i in range (0, mote_num*100):
 	t.runNextEvent()	
