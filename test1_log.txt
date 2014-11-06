@@ -1,8 +1,0 @@
-DEBUG (11): Mote Booted.
-DEBUG (11): Module:AMControl->Starting...
-DEBUG (32): Mote Booted.
-DEBUG (32): Module:AMControl->Starting...
-DEBUG (11): Module:AMControl->Message assignment complete,Node ID->11 , Data->123 ready to sent.
-DEBUG (11): Module:AMControl->Msg Sending. Node ID->11 , Data->123
-DEBUG (32): Module:AMControl->Message assignment complete,Node ID->32 , Data->123 ready to sent.
-DEBUG (32): Module:AMControl->Msg Sending. Node ID->32 , Data->123

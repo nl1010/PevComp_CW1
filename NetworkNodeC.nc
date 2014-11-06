@@ -37,19 +37,14 @@ implementation
   uint8_t flag_package_hold = FALSE; //indicates if the mote holded the package , initially not holded , after received a vaild message this will set to be TRUE
   int flag_forward_limit = 1 ; //the number of change a node can forward message agian , if the environment condition unchange , 1 is a suitable value to reduce total messages generated in the network.
   uint16_t _holded_data;
+
 //main events 
   event void Boot.booted()
   {
-
-   // call Timer0.startPeriodic(500);
-    //call Timer1.startPeriodic(250);
-    //TurnOnLed();
-
-    //dbg("Led","Led0 on \n");
     dbg("System","Mote Booted.\n");
 
     call AMControl.start(); //enable the radio chip
-   // dbg("Boot","Module:AMControl->Starting...\n");
+    dbg("System","Module:AMControl->Starting...\n");
   }
 
 
@@ -61,7 +56,7 @@ implementation
     if (msg == &_packet){
       _radioBusy = FALSE;
       flag_forward_limit = flag_forward_limit-1;  //if forward limit = 0 , cannot resend again 
-      dbg("Flag","forward limit:%i \n",flag_forward_limit);
+      dbg("Flag","Forward limit: %i.<if limit less then 1 then abort forwarding> \n",flag_forward_limit);
       //dbg("Boot","Message sended \n");
 
     }else {
@@ -114,7 +109,7 @@ implementation
       
       if (call AMSend.send(AM_BROADCAST_ADDR,&_packet,sizeof(NodeToNodeMsg)) == SUCCESS) {
          _radioBusy = TRUE;
-         dbg("Channel","%s FWD %hhu \n",sim_time_string(),msg->Data);
+         dbg("Channel","%s SND %hhu \n",sim_time_string(),msg->Data);
 
       } 
       

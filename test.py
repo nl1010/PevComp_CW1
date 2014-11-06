@@ -1,25 +1,33 @@
 from TOSSIM import *
 import sys #debugging issue 
 
+#Commen
 t = Tossim ([])
 r = t.radio()
 
-mote_num = 50  #number of motes counted from gain topology 
-t.addChannel ("System",sys.stdout)
-t.addChannel ("Channel",sys.stdout)
-t.addChannel ("Flag",sys.stdout)
-#mapping gain 
-f = open("large_random.out", "r")
+
+#Channels 
+#t.addChannel ("System",sys.stdout) #system/modules debug
+t.addChannel ("Channel",sys.stdout) #SND/RCV
+#t.addChannel ("Flag",sys.stdout) #flags holding on
+
+
+
+#Set Total Mote Number 
+mote_num = 50  
+
+# Gain Mapping 
+f = open("large_uniform.out", "r") #mote_num should change at the same time when switching file
 print "Mapping Gain:"
 for line in f:
 	s = line.split()
 	if s:
 		if s[0] =="gain":
 			r.add(int(s[1]),int(s[2]),float(s[3]))
-			print "From",s[1]," to ",s[2]," : ",s[3],"success"
+			print "Mapping Gain:",s[1],"=>",s[2],":",s[3],"...SUCCESS"
 
 
-#trace noise 
+#Noise Tracing 
 noise = open("meyer-heavy.txt", "r")
 for line in noise:
   str1 = line.strip()
@@ -28,19 +36,19 @@ for line in noise:
     for i in range(0, mote_num):
       t.getNode(i).addNoiseTraceReading(val)
 
-#create Noise Model
+#Create Noise Model
 for i in range(0, mote_num):
   t.getNode(i).createNoiseModel()
   print "Creating noise model for mote ",i,"...SUCCESS";
 
-#set boot time 
+#Set Boot Time  
 for i in range(0, mote_num):
-	boot_time = i*500
+	boot_time = 500
 	t.getNode(i).bootAtTime(boot_time)
 
 
 # /run motes 
 while True:
 	t.runNextEvent()
-# for i in range (0, 1000):
-# 	t.runNextEvent()	
+
+#Need Ctrl+C if no event running next.	
