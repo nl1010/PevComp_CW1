@@ -4,7 +4,7 @@ import sys #debugging issue
 #Commen
 t = Tossim ([])
 r = t.radio()
-
+topology_file = str(sys.argv[1])
 
 #Channels 
 #t.addChannel ("System",sys.stdout) #system/modules debug
@@ -17,7 +17,7 @@ t.addChannel ("Channel",sys.stdout) #SND/RCV
 mote_num = 50  
 
 # Gain Mapping 
-f = open("large_uniform.out", "r") #mote_num should change at the same time when switching file
+f = open(topology_file, "r") #mote_num should change at the same time when switching file
 print "Mapping Gain:"
 for line in f:
 	s = line.split()
