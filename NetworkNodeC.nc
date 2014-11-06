@@ -77,6 +77,8 @@ implementation
         NodeToNodeMsg* msg =(NodeToNodeMsg*) call Packet.getPayload(&_packet,sizeof(NodeToNodeMsg));
         msg->NodeID = TOS_NODE_ID;
         msg->Data = (uint16_t)TOS_NODE_ID; 
+        flag_package_hold = TRUE; //inital node is the parckage sender 
+
         //dbg("Boot","Module:AMControl->Message assignment complete,Node ID->%d , Data->%d ready to sent.\n",msg->NodeID,msg->Data);
 
 
